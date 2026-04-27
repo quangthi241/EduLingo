@@ -1,0 +1,29 @@
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Any, Protocol
+from uuid import UUID
+
+from app.modules.auth.domain.entities import User
+from app.modules.auth.domain.value_objects import Email
+
+
+class UserRepository(Protocol):
+    async def get_by_email(self, email: Email) -> User | None: ...
+    async def get_by_id(self, user_id: UUID) -> User | None: ...
+    async def add(self, user: User) -> User: ...
+    async def update(self, user: User) -> User: ...
+
+
+class PasswordHasher(Protocol):
+    def hash(self, plain: str) -> str: ...
+    def verify(self, plain: str, hashed: str) -> bool: ...
+
+
+class TokenIssuer(Protocol):
+    def issue(self, user_id: UUID, role: str) -> str: ...
+    def decode(self, token: str) -> dict[str, Any]: ...
+
+
+class Clock(Protocol):
+    def now(self) -> datetime: ...

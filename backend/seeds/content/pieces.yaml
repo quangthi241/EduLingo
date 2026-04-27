@@ -1,0 +1,245 @@
+# 12 curated pieces for the EduLingo library seed.
+# Audio fixtures are empty-placeholder mp3s in seeds/content/audio/; replace
+# with real recordings (e.g. Wikimedia Commons, LibriVox) when available.
+
+# === READING (3) ===
+- slug: coastlines
+  kind: reading
+  title: Coastlines
+  cefr: B1
+  minutes: 6
+  topic: travel
+  body:
+    text: >
+      The coastline of northern Portugal is sculpted by the Atlantic into long
+      stretches of cliff and cove. Fishing villages cling to narrow inlets, where
+      painted boats rest at dawn. Inland, pine forests filter the sea wind and
+      scent the air with resin. Visitors who hike the cliff paths often describe
+      the hush that falls at dusk, broken only by gulls and distant waves. The
+      light shifts hourly, turning the granite from grey to copper.
+    mcq:
+      - question: What shapes the coastline?
+        choices: [Ocean, Rivers, Glaciers]
+        correct_index: 0
+        rationale: "Opening sentence: sculpted by the Atlantic."
+      - question: What scents the air inland?
+        choices: [Salt, Pine resin, Woodsmoke]
+        correct_index: 1
+        rationale: "pine forests ... scent the air with resin"
+      - question: What breaks the silence at dusk?
+        choices: [Thunder, Gulls and waves, Church bells]
+        correct_index: 1
+        rationale: "broken only by gulls and distant waves"
+    short_answer:
+      prompt: Describe the colours of the cliffs in your own words.
+      grading_notes: Look for "grey", "copper", or equivalent colour vocabulary.
+
+- slug: kitchen-rituals
+  kind: reading
+  title: Kitchen Rituals
+  cefr: A2
+  minutes: 4
+  topic: daily-life
+  body:
+    text: >
+      Every Sunday evening, my grandmother prepares bread for the week. She wakes
+      early, measures flour by hand, and kneads the dough on a wooden board. The
+      kitchen fills with the warm smell of yeast. By the time the loaves come
+      out of the oven, the whole house is awake. We eat the first slices with
+      butter and quince jam while the radio plays quietly in the corner.
+    mcq:
+      - question: When does the grandmother bake?
+        choices: [Monday morning, Sunday evening, Every day]
+        correct_index: 1
+      - question: What does the narrator eat with the bread?
+        choices: [Butter and jam, Honey, Olive oil]
+        correct_index: 0
+      - question: What plays in the background?
+        choices: [Television, Radio, Music from a phone]
+        correct_index: 1
+    short_answer:
+      prompt: What time do the loaves come out of the oven?
+      grading_notes: Accept "morning" or "by the time the house is awake".
+
+- slug: cold-light
+  kind: reading
+  title: Cold Light
+  cefr: B2
+  minutes: 8
+  topic: science
+  body:
+    text: >
+      Bioluminescence — the production of light by living organisms — occurs
+      widely in the deep ocean. Unlike incandescent sources, bioluminescent
+      reactions release almost no heat, which is why biologists call this "cold
+      light". Most marine species that glow use a two-molecule system: luciferin,
+      which emits the photon, and luciferase, which catalyses the reaction. The
+      colour of the light — typically blue-green — matches the wavelengths that
+      travel furthest through seawater, suggesting a strong adaptive pressure.
+    mcq:
+      - question: Why is bioluminescence called "cold light"?
+        choices:
+          - It only works in cold water
+          - It produces almost no heat
+          - It is visible from far away
+        correct_index: 1
+      - question: Which molecule emits the photon?
+        choices: [Luciferase, Luciferin, Chlorophyll]
+        correct_index: 1
+      - question: Why is blue-green common?
+        choices:
+          - It is the only colour luciferin can produce
+          - It travels furthest through seawater
+          - It matches surface sunlight
+        correct_index: 1
+    short_answer:
+      prompt: What role does luciferase play in bioluminescence?
+      grading_notes: Accept any answer mentioning "catalyst" / "catalyses the reaction".
+
+# === LISTENING (3) ===
+- slug: night-radio
+  kind: listening
+  title: Night Radio
+  cefr: B1
+  minutes: 5
+  topic: culture
+  audio: night-radio.mp3
+  body:
+    transcript: >
+      You're listening to Midnight FM. Tonight's show begins with a postcard from
+      Lisbon, where the street musicians don't stop until three in the morning.
+      Stay with us after the break for a conversation with a jazz trumpeter who
+      plays on the metro every Friday.
+    mcq:
+      - question: What city is the postcard from?
+        choices: [Madrid, Lisbon, Barcelona]
+        correct_index: 1
+      - question: When does the jazz trumpeter play?
+        choices: [Every morning, Friday afternoons, Friday evenings on the metro]
+        correct_index: 2
+      - question: When do the street musicians stop?
+        choices: [Midnight, Two in the morning, Three in the morning]
+        correct_index: 2
+    short_answer:
+      prompt: Who is interviewed after the break?
+      grading_notes: A jazz trumpeter who plays on the metro.
+
+- slug: two-minute-pitch
+  kind: listening
+  title: Two-Minute Pitch
+  cefr: B2
+  minutes: 4
+  topic: business
+  audio: coastlines.mp3   # placeholder — replace
+  body:
+    transcript: >
+      Hi, I'm Priya, CEO of Ferrium. We build industrial sensors for offshore
+      wind farms. Our differentiator is calibration: every unit self-corrects
+      using on-device ML, which cuts maintenance trips by eighty percent. We're
+      raising a seed round to scale manufacturing in Porto.
+    mcq:
+      - question: What does Ferrium build?
+        choices: [Consumer gadgets, Industrial sensors, Software for accountants]
+        correct_index: 1
+      - question: What is the differentiator?
+        choices: [Cheap price, Self-calibration, Global support]
+        correct_index: 1
+      - question: Where will they scale manufacturing?
+        choices: [Porto, Lisbon, Berlin]
+        correct_index: 0
+    short_answer:
+      prompt: Why does self-calibration matter?
+      grading_notes: Accept any answer citing reduced maintenance trips / costs.
+
+- slug: atoms-and-coffee
+  kind: listening
+  title: Atoms and Coffee
+  cefr: A2
+  minutes: 3
+  topic: science
+  audio: null  # draft — awaiting recording
+  body:
+    transcript: >
+      Welcome to the Morning Science minute. Did you know the caffeine in your
+      coffee is a molecule that plants make to poison insects? Lucky for us,
+      humans are too big to mind. Instead, it wakes us up by blocking
+      sleep-signal receptors in the brain.
+    mcq:
+      - question: Why do plants make caffeine?
+        choices: [To smell nice, To poison insects, To attract bees]
+        correct_index: 1
+      - question: What does caffeine block in humans?
+        choices: [Pain receptors, Sleep-signal receptors, Memory receptors]
+        correct_index: 1
+      - question: Why doesn't caffeine poison humans?
+        choices: [We are too big, We have antibodies, We filter it out through sweat]
+        correct_index: 0
+    short_answer:
+      prompt: What does caffeine do in the brain?
+      grading_notes: Blocks sleep-signal receptors / keeps us awake.
+
+# === SPEAKING (3) ===
+- slug: weekend-plan
+  kind: speaking
+  title: Weekend Plan
+  cefr: B1
+  minutes: 3
+  topic: daily-life
+  body:
+    prompt: Describe your ideal weekend in two minutes. Mention where you would go, who you would see, and what you would eat.
+
+- slug: travel-story
+  kind: speaking
+  title: Travel Story
+  cefr: B1
+  minutes: 4
+  topic: travel
+  body:
+    prompt: Tell the story of a short trip you remember well. Set the scene, describe one surprising moment, and share what you learned.
+
+- slug: defend-your-thesis
+  kind: speaking
+  title: Defend Your Thesis
+  cefr: B2
+  minutes: 5
+  topic: academic
+  body:
+    prompt: Pick a recent academic topic you care about and argue for your position in three minutes. Anticipate one counter-argument and rebut it.
+
+# === WRITING (3) ===
+- slug: email-apology
+  kind: writing
+  title: Email Apology
+  cefr: B1
+  minutes: 10
+  topic: business
+  body:
+    prompt: Write a 120-150 word email apologising to a client for a delayed order. Offer a concrete remedy.
+    exemplar: >
+      Dear Mr Silva, I am writing to apologise for the delay of your recent
+      order, which should have arrived yesterday. A shipping error at our
+      warehouse has pushed delivery back by three days. To make up for the
+      inconvenience, I have upgraded the remaining items to express shipping
+      at no cost and included a twenty-percent voucher for your next order. I
+      will personally track the shipment and confirm delivery as soon as it
+      reaches you. Thank you for your patience. Kind regards, Mariana.
+
+- slug: one-paragraph-essay
+  kind: writing
+  title: One-Paragraph Essay
+  cefr: B2
+  minutes: 12
+  topic: academic
+  body:
+    prompt: In 180-220 words, argue whether universities should require all students to complete a research project. Support with two examples.
+    exemplar: null
+
+- slug: festival-review
+  kind: writing
+  title: Festival Review
+  cefr: B2
+  minutes: 10
+  topic: culture
+  body:
+    prompt: Review a cultural festival or event you attended. Describe the atmosphere, one performance in detail, and whether you would return.
+    exemplar: null
