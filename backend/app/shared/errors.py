@@ -108,6 +108,10 @@ def install_exception_handlers(app: FastAPI) -> None:
             extra={"details": exc.details},
         )
 
+    @app.exception_handler(ValueError)
+    async def on_value_error(_: Request, exc: ValueError) -> JSONResponse:
+        return _problem("validation_error", str(exc), 422)
+
 
 def _problem(
     title: str,

@@ -125,3 +125,36 @@ async def test_delete_published_rejected(http_client, admin_cookie, seed_publish
     piece = await seed_published_piece(slug="del-me")
     r = await http_client.delete(f"/api/admin/content/{piece['id']}", cookies=admin_cookie)
     assert r.status_code == 422, r.text
+
+
+async def test_invalid_reading_payload_returns_422_not_500(http_client, admin_cookie):
+    r = await http_client.post(
+        "/api/admin/content",
+        json={
+            "kind": "reading",
+            "slug": "bad-reading",
+            "title": "Bad Reading",
+            "cefr": "B1",
+            "minutes": 6,
+            "topic": "travel",
+            "body": {
+                "kind": "reading",
+                "text": "too short",
+                "mcq": [
+                    {
+                        "question": f"Q{i}",
+                        "choices": ["a", "b"],
+                        "correctIndex": 0,
+                        "rationale": "r",
+                    }
+                    for i in range(3)
+                ],
+                "shortAnswer": {"prompt": "p", "gradingNotes": "n"},
+            },
+        },
+        cookies=admin_cookie,
+    )
+    assert r.status_code == 422, r.text
+    payload = r.json()
+    assert payload["title"] == "validation_error"
+    assert "reading text must be 100..4000 chars" in payload["detail"]
