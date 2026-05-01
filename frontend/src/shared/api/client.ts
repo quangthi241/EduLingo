@@ -1,8 +1,13 @@
 import { ApiError } from "./errors";
 
 const DEFAULT_BASE_URL = "http://localhost:8000";
+const DEFAULT_INTERNAL_BASE_URL = "http://backend:8000";
 
 export function apiBaseUrl(): string {
+  // On the server (SSR / RSC), prefer the internal Docker network URL.
+  if (typeof window === "undefined") {
+    return process.env.INTERNAL_API_BASE_URL ?? DEFAULT_INTERNAL_BASE_URL;
+  }
   return process.env.NEXT_PUBLIC_API_BASE_URL ?? DEFAULT_BASE_URL;
 }
 

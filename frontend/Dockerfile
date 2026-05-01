@@ -11,7 +11,9 @@ RUN --mount=type=cache,id=pnpm,target=/root/.local/share/pnpm/store \
 
 FROM base AS builder
 ARG NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+ARG INTERNAL_API_BASE_URL=http://backend:8000
 ENV NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL} \
+    INTERNAL_API_BASE_URL=${INTERNAL_API_BASE_URL} \
     NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
